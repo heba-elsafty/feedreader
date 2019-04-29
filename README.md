@@ -45,7 +45,7 @@ gulp
 ```
 9. This will then start a local dev server on `localhost:3000`.
 
-You can find more plugins for the gulp package page of [http-server](https://gulpjs.com/plugins/).
+You can find more plugins for the gulp package page of [http-server]https://gulpjs.com/plugins/.
 
 
 # About the tests
