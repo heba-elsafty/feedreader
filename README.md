@@ -10,7 +10,9 @@ A simple way to go is to clone or download this git repository to your local mac
 
 ## Run the app on a server
 1. clone this repository to your project folder (https://github.com/heba-elsafty/feedreader.git)
+
 2. ensure you've installed node.js. For more details, please refer to [node.js official website](https://nodejs.org/en/)
+
 3. Open terminal, Then install the `gulp`.
 ```sh
 npm install --global gulp-cli
@@ -23,7 +25,10 @@ npm init
 ```sh
 npm install --save-dev gulp
 ```
-6. Then install `gulp browser-sync` in npm with command line `npm install browser-sync --save-div`
+6. Then install `gulp browser-sync` in npm with command line.
+```sh
+npm install browser-sync --save-div
+```
 
 7. Then, use them within your `gulpfile.js`
 ```sh
