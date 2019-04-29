@@ -1,16 +1,17 @@
 const gulp = require('gulp'),
-		  browserSync = require('browser-sync').create(),
-		  sass = require("gulp-sass"),
-		  autoprefixer = require('gulp-autoprefixer'),
-		  sourcemaps  = require('gulp-sourcemaps'),
-		  eslint = require('gulp-eslint'),
-		  concat = require('gulp-concat'),
-		  uglify = require('gulp-uglify'),
-		  babel  = require('gulp-babel'),
-		  jasmineBrowser = require('gulp-jasmine-browser');
+		browserSync = require('browser-sync').create(),
+		sass = require("gulp-sass"),
+		autoprefixer = require('gulp-autoprefixer'),
+		sourcemaps  = require('gulp-sourcemaps'),
+		eslint = require('gulp-eslint'),
+		concat = require('gulp-concat'),
+		uglify = require('gulp-uglify-es').default,
+		babel  = require('gulp-babel'),
+		jasmineBrowser = require('gulp-jasmine-browser');
+		reload  = browserSync.reload;
 
 // DEFAULT TASK
-gulp.task("default",['styles','copy-html','copy-fonts','lint','scripts-dist'] ,function() {
+gulp.task("default",['styles','copy-html','copy-fonts','lint','scripts-dist','tests'] ,function() {
 	gulp.watch("assets/stylesheet/**/*.scss", ["styles"])
 	gulp.watch('./index.html', ['copy-html']);
 	gulp.watch('assets/fonts/**', ['copy-fonts']);
@@ -19,9 +20,11 @@ gulp.task("default",['styles','copy-html','copy-fonts','lint','scripts-dist'] ,f
 	gulp.watch('assets/tests/**/*.js', ['tests']);
 	browserSync.init({
 		server: "./"
-	});
+	})
+	gulp.watch("*.html").on("change", reload);
+	gulp.watch("*.scss").on("change", reload);
+	gulp.watch("*.js").on("change", reload);
 });
-
 
 
 gulp.task('styles' ,function() {
